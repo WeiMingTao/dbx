@@ -2,6 +2,8 @@
 
 # Stage 1: Build frontend (native, no emulation)
 FROM --platform=$BUILDPLATFORM node:22-slim AS frontend
+ENV VITE_DBX_BASE_PATH=/dbx
+ENV DBX_PUBLIC_BASE_PATH=/dbx
 WORKDIR /app
 RUN npm i -g pnpm
 # Keep the workspace package available because Vite resolves it directly from source.
